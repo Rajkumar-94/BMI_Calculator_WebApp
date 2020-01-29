@@ -1,0 +1,1 @@
+This code was written to calculate BMI by referring the example "https://github.com/qxf2/qa-interview-web-application"
