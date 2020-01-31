@@ -47,10 +47,10 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <p class="text-center top-space-20" id="resultDiv">
+                <p class="text-center top-space-20" id="resultCategory">
                 </p>
             </div>
         </div>
-    </div>
     <div class="col-md-12">
         <div class="row-fluid">
             <p class="margin-base-vertical text-center wor_copyright">
@@ -91,6 +91,8 @@
                         console.log(bmicalculator);
                         $("#resultDiv").css('color', 'blue');
                         $("#resultDiv").text('The BMI is: ' + bmicalculator.answer);
+                        $("#resultCategory").css('color', 'blue');
+                        $("#resultCategory").text('You are: ' +bmicalculator.type_of);
                     });
                 }
             });
