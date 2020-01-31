@@ -16,6 +16,16 @@ def calculate_bmi(w,h):
 #    else:
     return round(w/(h*h),2)
 
+def weight_categogy(result):
+    if result<=18.5:
+        return "Under Weight"
+    elif result>18.5 and result<25:
+        return "Normal Weight"
+    elif result>=25 and result<=29.9:
+        return "Over Weight"
+    elif result>30:
+        return "Obese"
+
 @app.route("/", methods=['GET', 'POST'])
 @app.route("/bmicalculator", methods=['GET', 'POST'])
 def bmi_calculator():
@@ -28,7 +38,8 @@ def bmi_calculator():
         weight = float(request.form.get('weight'))
         height = float(request.form.get('height'))
         result = calculate_bmi(weight,height)
-        api_response = {"answer": result}
+        result_category=weight_categogy(result)
+        api_response = {"answer": result,"type_of":result_category}
         return jsonify(api_response)
 
 @app.route("/terms")
