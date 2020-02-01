@@ -1,6 +1,6 @@
 """
-This is a Flask application that can be used to interview QA engineers. 
-All the application does is to calculate the factorial of a number. 
+This is a Flask application that can be used to interview QA engineers.
+All the application does is to calculate the factorial of a number.
 But there have been bugs seeded. For example, this application will go into an infinite loop if you pass it a negative number.
 To learn more, see the README.md of this application.
 """
@@ -10,10 +10,7 @@ from flask import Flask, jsonify, render_template, request
 app = Flask(__name__)
 
 def calculate_bmi(w,h):
-    "Calculate the factorial of a number"
-#    if n==0:
-#        return 1
-#    else:
+    "Calculate the Body mass index"
     return round(w/(h*h),2)
 
 def weight_categogy(result):
@@ -41,17 +38,6 @@ def bmi_calculator():
         result_category=weight_categogy(result)
         api_response = {"answer": result,"type_of":result_category}
         return jsonify(api_response)
-
-@app.route("/terms")
-def terms_and_conditions():
-    "Return terms and conditions"
-    return "This is the terms and conditions document. We are not yet ready with it. Stay tuned!"
-
-@app.route("/privacy")
-def privacy():
-    "Return privacy statement"
-    return "This is the privacy document. We are not yet ready with it. Stay tuned!"
-    
 
 #---START OF SCRIPT
 if __name__ == '__main__':
